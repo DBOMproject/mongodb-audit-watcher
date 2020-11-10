@@ -42,7 +42,7 @@ Instructions for deploying the mongodb audit watcher using helm charts can be fo
 
 If you have any queries on mongodb-audit-watcher, feel free to reach us on any of our [communication channels](https://github.com/DBOMproject/community/blob/master/COMMUNICATION.md) 
 
-If you have questions, concerns, bug reports, etc, please file an issue in this repository's [issue tracker](https://github.com/DBOMproject/node-sdk/issues).
+If you have questions, concerns, bug reports, etc, please file an issue in this repository's [issue tracker](https://github.com/DBOMproject/mongodb-audit-watcher/issues).
 
 ## Getting Involved
 
