@@ -46,4 +46,4 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 
 ## Getting Involved
 
-Find the instructions on how you can contribute in  [CONTRIBUTING](CONTRIBUTING.md).
+Find the instructions on how you can contribute in [CONTRIBUTING](CONTRIBUTING.md).
