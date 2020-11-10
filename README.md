@@ -10,10 +10,8 @@ If you have configured a standalone installation of mongodb, follow [these instr
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [How to Use](#how-to-use)
-  - [API](#api)
   - [Configuration](#configuration)
 - [Helm Deployment](#helm-deployment)
-- [Jenkins Pipeline](#jenkins-pipeline)
 - [Getting Help](#getting-help)
 - [Getting Involved](#getting-involved)
 
@@ -42,14 +40,10 @@ Instructions for deploying the mongodb audit watcher using helm charts can be fo
 
 ## Getting Help
 
-If you have any queries on insert-project-name, feel free to reach us on any of our [communication channels](https://github.com/DBOMproject/community/blob/master/COMMUNICATION.md) 
+If you have any queries on mongodb-audit-watcher, feel free to reach us on any of our [communication channels](https://github.com/DBOMproject/community/blob/master/COMMUNICATION.md) 
 
 If you have questions, concerns, bug reports, etc, please file an issue in this repository's [issue tracker](https://github.com/DBOMproject/node-sdk/issues).
 
 ## Getting Involved
 
-This section should detail why people should get involved and describe key areas you are
-currently focusing on; e.g., trying to get feedback on features, fixing certain bugs, building
-important pieces, etc.
-
-General instructions on _how_ to contribute should be stated with a link to [CONTRIBUTING](CONTRIBUTING.md).
+Find the instructions on how you can contribute in  [CONTRIBUTING](CONTRIBUTING.md).
