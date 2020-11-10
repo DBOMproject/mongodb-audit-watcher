@@ -1,0 +1,25 @@
+{
+  "source": {
+      "include": [
+          "../README.md",
+          "app.js",
+          "controller/watcher.js",
+          "utils/environment.js",
+          "utils/logging.js",
+          "utils/persistence.js"
+      ]
+  },
+  "opts": {
+      "destination": "docs/gen",
+      "recurse": true,
+      "pedantic": true,
+      "template": "./node_modules/minami"
+  },
+  "templates": {
+      "systemName": "DBoM MongoDB Audit Watcher for Node.js",
+      "theme": "cosmo"
+  },
+  "tags": {
+      "allowUnknownTags": false
+  }
+}

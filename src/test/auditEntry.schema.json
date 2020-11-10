@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "payload",
+    "resourceID",
+    "eventType"
+  ],
+  "properties": {
+    "timestamp": {
+      "$id": "#/properties/timestamp",
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "$id": "#/properties/payload",
+      "type": "object",
+      "default": {},
+      "additionalProperties": true
+    },
+    "resourceID": {
+      "$id": "#/properties/resourceID",
+      "type": "string"
+    },
+    "eventType": {
+      "$id": "#/properties/eventType",
+      "type": "string"
+    }
+  }
+}

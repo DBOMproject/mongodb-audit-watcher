@@ -1,0 +1,10 @@
+{
+  "all": true,
+  "exclude": [
+    "coverage/**",
+    "utils/**",
+    "test/**",
+    "test-helpers/**",
+    "docs/**"
+  ]
+}

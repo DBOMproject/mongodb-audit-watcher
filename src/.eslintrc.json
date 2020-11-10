@@ -1,0 +1,22 @@
+{
+  "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true
+  },
+  "extends": "airbnb-base",
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+      "ecmaVersion": 2018
+  },
+  "rules": {
+      "linebreak-style":"off",
+      "no-trailing-spaces": "off",
+      "no-underscore-dangle": "off",
+      "func-names": ["warn", "as-needed", { "generators": "never" }],
+      "max-classes-per-file": ["error", 2]
+  }
+}
