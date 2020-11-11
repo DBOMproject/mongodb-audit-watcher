@@ -49,6 +49,10 @@ exports.setupLogs = () => {
   });
 };
 
+/**
+ * Logs a fatal error and exits
+ * @func
+ */
 exports.logFatalError = (error) => {
   log.error(`${error}. Fatal`);
   process.exit(1);

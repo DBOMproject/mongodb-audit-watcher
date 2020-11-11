@@ -15,7 +15,7 @@
  */
 
 const {
- describe, it, beforeEach, afterEach,
+  describe, it, beforeEach, afterEach, before,
 } = require('mocha');
 const chai = require('chai');
 const sinon = require('sinon');
@@ -42,17 +42,28 @@ describe('watcher', () => {
   afterEach(sinon.restore);
 
   describe('initWatcher', () => {
-    it('connects to the database and registers event listeners for change and error', () => {
-      const changeHandlerSpy = sinon.spy();
-      const mockDB = {
-        watch: sinon.stub()
-          .returns(
-            {
-              on: changeHandlerSpy,
-            },
-          ),
+    let changeHandlerSpy;
+    let mockDB;
+    let watchStub;
+    beforeEach(() => {
+      changeHandlerSpy = sinon.spy();
+      watchStub = sinon.stub().returns(
+        {
+          on: changeHandlerSpy,
+        },
+      );
+      mockDB = {
+        watch: watchStub,
       };
-
+    });
+    it('connects to the database and registers event listeners for change and error', () => {
+      watcherModule.initWatcher(mockDB, undefined, sinon.fake(), sinon.fake());
+      changeHandlerSpy.should.have.been.calledTwice();
+    });
+    it('handles the case where the resume token is not usable', () => {
+      sinon.stub(persistence, 'purgeResumeToken').resolves()
+      watchStub.withArgs(sinon.match.any, sinon.match.has('resumeAfter'))
+        .throws(new Error('No resume token found'));
       watcherModule.initWatcher(mockDB, undefined, sinon.fake(), sinon.fake());
       changeHandlerSpy.should.have.been.calledTwice();
     });

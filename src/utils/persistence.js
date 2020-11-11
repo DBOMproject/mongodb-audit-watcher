@@ -26,12 +26,20 @@ let persistenceDB;
 
 const RESUME_TOKEN_KEY = 'resumeToken';
 
+/**
+ * Set up LevelDB if it's not already ready
+ * @func
+ */
 const checkAndInitLevelDB = () => {
   if (persistenceDB === undefined) {
     persistenceDB = level(`${getPersistPath()}/levelDB`, { valueEncoding: 'json' });
   }
 };
 
+/**
+ * Gets resume token from LevelDB store
+ * @func
+ */
 exports.getResumeToken = async () => {
   checkAndInitLevelDB();
   try {
@@ -41,7 +49,20 @@ exports.getResumeToken = async () => {
   }
 };
 
+/**
+ * Updates resume token from LevelDB store
+ * @func
+ */
 exports.updateResumeToken = async (token) => {
   checkAndInitLevelDB();
   await persistenceDB.put(RESUME_TOKEN_KEY, token);
+};
+
+/**
+ * Purges resume token from LevelDB store
+ * @func
+ */
+exports.purgeResumeToken = async () => {
+  checkAndInitLevelDB();
+  await persistenceDB.del(RESUME_TOKEN_KEY);
 };

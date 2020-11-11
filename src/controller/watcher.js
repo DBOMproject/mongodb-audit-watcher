@@ -84,10 +84,19 @@ const makeChannelEventCommitter = (db, auditChannelPostfix) => {
  * @param {{_id: {data: string}}=} resumeToken - A mongoDB change stream resume token. Is optional
  */
 const initWatcher = (db, resumeToken, changeHandler, errorHandler) => {
-  const changeEventEmitter = db.watch([], {
-    fullDocument: 'updateLookup',
-    resumeAfter: resumeToken,
-  });
+  let changeEventEmitter;
+  try {
+    changeEventEmitter = db.watch([], {
+      fullDocument: 'updateLookup',
+      resumeAfter: resumeToken,
+    });
+  } catch (e) {
+    log.warn(`Could not resume, got error (${e}). Attempting without resume token`);
+    persistence.purgeResumeToken();
+    changeEventEmitter = db.watch([], {
+      fullDocument: 'updateLookup',
+    });
+  }
   changeEventEmitter.on('change', changeHandler);
   changeEventEmitter.on('error', errorHandler);
   log.info('Listening to changes');
