@@ -36,7 +36,7 @@ If you have configured a standalone installation of mongodb, follow [these instr
 
 ## Helm Deployment
 
-Instructions for deploying the mongodb audit watcher using helm charts can be found [here](https://github.com/DBOMproject/deployment/blob/master/charts/mongodb-audit-watcher)
+Instructions for deploying the mongodb audit watcher using helm charts can be found [[here](https://github.com/DBOMproject/deployments/tree/master/charts/mongodb-audit-watcher)
 
 ## Getting Help
 
