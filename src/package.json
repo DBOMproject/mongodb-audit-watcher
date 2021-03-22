@@ -14,7 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "level": "^6.0.1",
-    "mongodb": "^3.6.2",
+    "mongodb": "^3.6.5",
     "winston": "^3.3.3",
     "bson": "latest"
   },
