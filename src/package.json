@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node watcher",
     "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha --require test/setup.test.js --colors --exit && npx nyc report --reporter=html",
+    "test-coveralls": "./node_modules/.bin/nyc ./node_modules/.bin/mocha --require ./test-helpers/prepare.js --timeout=1200000 --exit && npx nyc report --reporter=lcovonly"
     "test-jenkins": "./node_modules/.bin/cross-env JUNIT_REPORT_PATH=./report.xml ./node_modules/.bin/nyc ./node_modules/.bin/mocha --reporter mocha-jenkins-reporter --require test/setup.test.js  --exit && npx nyc report --reporter=html",
     "generate-docs": "./node_modules/.bin/jsdoc -c ./docs/jsdoc.json"
   },
