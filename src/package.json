@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "ajv": "^6.12.6",
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "chai-json-schema-ajv": "^5.1.0",
     "cross-env": "^7.0.2",
@@ -32,7 +32,7 @@
     "jsdoc": "^3.6.6",
     "lodash.clonedeep": "^4.5.0",
     "minami": "^1.2.3",
-    "mocha": "^8.1.2",
+    "mocha": "^8.3.2",
     "mocha-jenkins-reporter": "^0.4.5",
     "nyc": "^15.1.0",
     "rewire": "^5.0.0",
