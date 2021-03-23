@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "level": "^6.0.1",
-    "mongodb": "^3.6.2",
+    "mongodb": "^3.6.5",
     "winston": "^3.3.3",
     "bson": "latest"
   },
@@ -27,7 +27,7 @@
     "cross-env": "^7.0.2",
     "decache": "^4.6.0",
     "dirty-chai": "^2.0.1",
-    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "jsdoc": "^3.6.6",
     "lodash.clonedeep": "^4.5.0",
