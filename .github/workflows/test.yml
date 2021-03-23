@@ -1,0 +1,27 @@
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+name: Test
+jobs:
+  test:
+    env: 
+      working-directory: ./src
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Node 15.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 15.x
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Test and Create Coverage Data
+      working-directory: ${{ env.working-directory }}
+      run: npm ci && npm run test-coveralls
+    - name: Coveralls
+      uses: coverallsapp/github-action@v1.1.2
+      with:
+          github-token: ${{ secrets.github_token }}
+          path-to-lcov: ${{ env.working-directory }}/coverage/lcov.info
+          base-path: ${{ env.working-directory }}
