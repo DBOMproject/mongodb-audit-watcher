@@ -12,6 +12,7 @@ If you have configured a standalone installation of mongodb, follow [these instr
 - [How to Use](#how-to-use)
   - [Configuration](#configuration)
 - [Helm Deployment](#helm-deployment)
+- [Platform Support](#platform-support)
 - [Getting Help](#getting-help)
 - [Getting Involved](#getting-involved)
 
@@ -37,6 +38,11 @@ If you have configured a standalone installation of mongodb, follow [these instr
 ## Helm Deployment
 
 Instructions for deploying the mongodb audit watcher using helm charts can be found [[here](https://github.com/DBOMproject/deployments/tree/master/charts/mongodb-audit-watcher)
+
+
+## Platform Support
+
+Currently, we provide pre-built container images for linux amd64 and arm64 architectures via our Github Actions Pipeline. Find the images [here](https://hub.docker.com/r/dbomproject/mongodb-audit-watcher)
 
 ## Getting Help
 
