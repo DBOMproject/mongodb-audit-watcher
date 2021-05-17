@@ -14,51 +14,44 @@
  *   limitations under the License.
  */
 
-const mongoDB = require('mongodb');
-const log = require('winston');
-const persistence = require('./utils/persistence');
-const logging = require('./utils/logging');
-const env = require('./utils/environment');
-const watcher = require('./controller/watcher');
-const { logFatalError } = require('./utils/logging');
+const log = require('winston')
+const persistence = require('./utils/persistence')
+const logging = require('./utils/logging')
+const env = require('./utils/environment')
+const watcher = require('./controller/watcher')
+const {logFatalError} = require('./utils/logging')
 
-logging.setupLogs();
+logging.setupLogs()
 
-const client = new mongoDB.MongoClient(env.getMongoURI(),
-  {
-    numberOfRetries: 100,
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  });
-
-log.info(`MongoDB: Trying to connect to ${env.getMongoURI()}`);
+const client = watcher.makeClientFromEnv()
 
 /**
  * Initiate the watcher after we connect to mongoDB
  * @param {MongoClient} connectedClient
  */
 const watchAfterConnect = async (connectedClient) => {
-  log.info('MongoDB Connected!');
-  const db = connectedClient.db(env.getChannelDB());
+  log.info('MongoDB Connected!')
+  const db = connectedClient.db(env.getChannelDB())
 
   // Get a resume token if there is one
-  const resumeToken = await persistence.getResumeToken();
+  const resumeToken = await persistence.getResumeToken()
 
   if (resumeToken == null) {
-    log.info('No resume token. Will start watching collections/channels from now');
+    log.info('No resume token. Will start watching collections/channels from now')
   } else {
-    log.info('A resume token was found. Attempting to resume from where I left off');
+    log.info('A resume token was found. Attempting to resume from where I left off')
   }
 
   watcher.initWatcher(db,
     resumeToken,
     watcher.makeChannelEventCommitter(db, env.getAuditCollectionPostfix()),
-    logFatalError);
-};
+    logFatalError)
+}
 
-client.connect()
-  .then(watchAfterConnect, logFatalError);
+log.info('Trying to connect to mongoDB using environment configuration')
+log.debug(`MongoDB: URI is  ${env.getMongoURIFromEnv()}`)
+client.connect().then(watchAfterConnect, logFatalError)
 
 module.exports = {
   watchAfterConnect,
-};
+}

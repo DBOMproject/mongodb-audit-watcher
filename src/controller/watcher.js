@@ -14,13 +14,48 @@
  *   limitations under the License.
  */
 
-/** Handles watching and acting on mongo change events
+/**
+ * Handles watching and acting on mongo change events
  * @module watcher
  */
 
 const log = require('winston');
+const mongodb = require('mongodb');
 const persistence = require('../utils/persistence');
+const env = require('../utils/environment');
 const audit = require('./audit');
+
+/**
+ * Creates an instance of the mongoDB client based on environment variables
+ * @func
+ * @return {MongoClient} - Client that is ready to connect to
+ */
+const makeClientFromEnv = () => {
+  let mongoClient;
+  const tlsParams = env.getTLSParams();
+  const defaultOptions = {
+    numberOfRetries: 5,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    connectTimeoutMS: env.getMongoConnectionTimeout(),
+    serverSelectionTimeoutMS: env.getMongoServerSelectionTimeout(),
+  };
+  if (tlsParams.enabled) {
+    log.info('Using mutual TLS authentication and X509 authorization');
+    mongoClient = new mongodb.MongoClient(env.getMongoURIFromEnv(),
+      {
+        ...tlsParams.mongoOptions,
+        ...defaultOptions,
+        tls: true,
+      });
+  } else {
+    mongoClient = new mongodb.MongoClient(env.getMongoURIFromEnv(),
+      {
+        ...defaultOptions,
+      });
+  }
+  return mongoClient;
+};
 
 /**
  * Takes a mongoDB change event and commits it to the audit channel
@@ -106,5 +141,5 @@ module.exports = {
   initWatcher,
   makeChannelEventCommitter,
   commitChannelEventToDB,
-
+  makeClientFromEnv
 };

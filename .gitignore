@@ -1,0 +1,6 @@
+# IDE Specific folders
+.idea
+.vscode
+
+# Key Storage
+.secrets
