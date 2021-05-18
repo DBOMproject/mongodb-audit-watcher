@@ -24,7 +24,7 @@
     "ajv": "^6.12.6",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "chai-json-schema-ajv": "^5.1.0",
+    "chai-json-schema-ajv": "^5.2.4",
     "cross-env": "^7.0.3",
     "decache": "^4.6.0",
     "dirty-chai": "^2.0.1",
