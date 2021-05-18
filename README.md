@@ -22,18 +22,25 @@ If you have configured a standalone installation of mongodb, follow [these instr
 
 ### Configuration
 
-| Environment Variable         | Default          | Description                                                                     |
-|------------------------------|------------------|---------------------------------------------------------------------------------|
-| LOG_LEVEL                    | `info`           | The verbosity of the logging                                                    |
-| PORT                         | `3000`           | Port on which the gateway listens                                               |
-| MONGO_URI                    | -                | A mongodb uri string. If this is specified, all other mongo args are overridden |
-| MONGO_HOST                   | `mongodb`        | The host on which mongodb is available                                          |
-| MONGO_PORT                   | `27017`          | Port on which mongodb's native driver api is available                          |
-| MONGO_PASS                   | `pass`           | Password for mongo host                                                         |
-| MONGO_REPLICA_SET_NAME       | ``               | Name of the mongo replicaset. Only required if connecting to an rs mongo        |
-| CHANNEL_DB                   | `primary`        | The database used as the channel collection                                     |
-| AUDIT_POSTFIX                | `_audit`         | The postfix added to the audit channel for any given channel                    |
-| PERSIST_PATH                 | `./persist`      | Path where the service can store the resume token over restarts                 |
+| Environment Variable           | Default                      | Description                                                                                                    |
+|--------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------|
+| LOG_LEVEL                      | `info`                       | The verbosity of the logging                                                                                   |
+| MONGO_URI                      | -                            | A mongodb uri string. If this is specified, all other mongo args are overridden                                |
+| MONGO_HOST                     | `mongodb`                    | The host on which mongodb is available                                                                         |
+| MONGO_PORT                     | `27017`                      | Port on which mongodb's native driver api is available                                                         |
+| MONGO_PASS                     | `pass`                       | Password for mongo host                                                                                        |
+| MONGO_REPLICA_SET_NAME         | ``                           | Name of the mongo replicaset. Only required if connecting to an rs mongo                                       |
+| MONGO_TLS_MODE_ENABLED         | `0`                          | If set to 1, enable TLS mongodb connections and present a client certificate for authorization                 |
+| MONGO_TLS_CLIENT_CERT_PATH     | ``                           | Path to client certificate as .PEM encoded file. Relative to launch directory. Required if TLS mode is enabled |
+| MONGO_TLS_CA_CERT_PATH         | ``                           | Path to CAs certificate as a .PEM encoded file. Relative to launch directory. Required if TLS mode is enabled  |
+| MONGO_TLS_CLIENT_CERT_PASS_KEY | `MONGO_TLS_CLIENT_CERT_PASS` | Environment variable key for client certificate password.                                                      |
+| MONGO_TLS_CLIENT_CERT_PASS     | ``                           | Key to decrypt client certificate. Required if client certificate is protected with a passphrase               |
+| MONGO_TLS_ALLOW_INVALID_HOST   | `0`                          | Allow use of server TLS certificates which do not have matching hostnames                                      |
+| MONGO_SERVER_SELECTION_TIMEOUT | `3000`                       | Timeout for mongodb server selection. In milliseconds                                                          |
+| MONGO_CONNECTION_TIMEOUT       | `3000`                       | Timeout for mongodb connection establishment. In milliseconds                                                  |
+| CHANNEL_DB                     | `primary`                    | The database used as the channel collection                                                                    |
+| AUDIT_POSTFIX                  | `_audit`                     | The postfix added to the audit channel for any given channel                                                   |
+| PERSIST_PATH                   | `./persist`                  | Path where the service can store the resume token over restarts                                                |
 
 ## Helm Deployment
 

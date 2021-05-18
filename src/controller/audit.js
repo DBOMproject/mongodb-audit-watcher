@@ -14,7 +14,8 @@
  *   limitations under the License.
  */
 
-/** Handles the generation and commit for DBoM Audit Entries
+/**
+ * Handles the generation and commit for DBoM Audit Entries
  * @module audit
  */
 
