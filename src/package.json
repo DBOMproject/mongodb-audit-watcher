@@ -15,10 +15,10 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
+    "bson": "latest",
     "level": "^6.0.1",
     "mongodb": "^3.6.5",
-    "winston": "^3.3.3",
-    "bson": "latest"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "ajv": "^6.12.6",
@@ -43,6 +43,7 @@
   "resolutions": {
     "taffydb": "2.7.3",
     "lodash": "4.17.21",
-    "underscore": "1.13.1"
+    "underscore": "1.13.1",
+    "hosted-git-info": "2.8.9"
   }
 }
