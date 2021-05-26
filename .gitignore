@@ -4,3 +4,6 @@
 
 # Key Storage
 .secrets
+
+# LevelDB Persistence
+persist
