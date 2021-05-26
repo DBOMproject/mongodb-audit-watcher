@@ -1,6 +1,6 @@
 {
   "name": "mongodb-audit-watcher",
-  "version": "0.0.1",
+  "version": "1.1.1",
   "description": "A microservice that creates audit entries on a MongoDB Database by using change streams. Created for use in conjunction with the DBoM Database Agent",
   "main": "app.js",
   "scripts": {
@@ -12,9 +12,10 @@
     "generate-docs": "./node_modules/.bin/jsdoc -c ./docs/jsdoc.json"
   },
   "keywords": [],
-  "author": "",
+  "author": "Unisys Inc",
   "license": "Apache-2.0",
   "dependencies": {
+    "ajv-formats": "^2.1.0",
     "bson": "latest",
     "level": "^7.0.0",
     "mongodb": "^3.6.8",

@@ -23,6 +23,7 @@ const sinonChai = require('sinon-chai');
 const chaiJsonSchema = require('chai-json-schema-ajv');
 const dirtyChai = require('dirty-chai');
 const chaiAsPromised = require('chai-as-promised');
+const addFormats = require('ajv-formats');
 const { exampleMongoDBChangeEvent } = require('./common.test');
 const auditEntrySchema = require('./auditEntry.schema');
 
@@ -33,6 +34,8 @@ chai.use(sinonChai);
 chai.use(chaiJsonSchema);
 chai.use(chaiAsPromised);
 chai.use(dirtyChai);
+
+addFormats(chai.ajv);
 
 chai.should();
 
