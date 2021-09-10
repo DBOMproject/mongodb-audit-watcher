@@ -35,7 +35,7 @@
     "lodash.clonedeep": "^4.5.0",
     "minami": "^1.2.3",
     "mocha": "^8.3.2",
-    "mocha-jenkins-reporter": "^0.4.5",
+    "mocha-jenkins-reporter": "^0.4.7",
     "nyc": "^15.1.0",
     "rewire": "^5.0.0",
     "sinon": "^11.1.2",
