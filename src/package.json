@@ -15,7 +15,7 @@
   "author": "Unisys Inc",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv-formats": "^2.1.0",
+    "ajv-formats": "^2.1.1",
     "bson": "latest",
     "level": "^7.0.0",
     "mongodb": "^3.6.8",
