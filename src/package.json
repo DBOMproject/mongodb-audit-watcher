@@ -22,7 +22,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "ajv": "^8.6.2",
+    "ajv": "^8.8.1",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "chai-json-schema-ajv": "^5.2.0",
