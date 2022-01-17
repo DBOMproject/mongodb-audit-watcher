@@ -37,7 +37,7 @@
     "mocha": "^8.3.2",
     "mocha-jenkins-reporter": "^0.4.7",
     "nyc": "^15.1.0",
-    "rewire": "^5.0.0",
+    "rewire": "^6.0.0",
     "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0"
   },
@@ -45,6 +45,9 @@
     "taffydb": "2.7.3",
     "lodash": "4.17.21",
     "underscore": "1.13.1",
-    "hosted-git-info": "2.8.9"
+    "hosted-git-info": "2.8.9",
+    "marked": "4.0.10",
+    "markdown-it": "12.3.2",
+    "ansi-regex": "5.0.1"
   }
 }
